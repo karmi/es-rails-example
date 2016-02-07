@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+john:
+  email: john@example.com
+  date_joined: 2016-02-06 10:53:31
+  display_name: john
+  url: example.com
+  location: USA
+  description: John is...
+  views: 1
+  votes_up: 1
+  votes_down: 1
+  age: 1
+
+mary:
+  email: mary@example.com
+  date_joined: 2016-02-06 10:53:31
+  display_name: mary
+  url: example.com
+  location: UK
+  description: Mary is...
+  views: 1
+  votes_up: 1
+  votes_down: 1
+  age: 1

@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+question_one:
+  creation_date: 2016-02-06 10:54:33
+  last_activity_date: 2016-02-06 10:54:33
+  rating: 1
+  body: Lorem Ipsum Dolor
+  tags: one,two
+  title: Question One
+  favorite_count: 1
+  view_count: 1
+  last_edit_date: 2016-02-06 10:54:33
+  accepted_answer_id: 1
+  last_editor_id: 1
+  owner: john
+
+question_two:
+  creation_date: 2016-02-06 10:54:33
+  last_activity_date: 2016-02-06 10:54:33
+  rating: 1
+  body: Consectetur adipisicing elit
+  tags: two,three
+  title: Question Two
+  favorite_count: 1
+  view_count: 1
+  last_edit_date: 2016-02-06 10:54:33
+  accepted_answer_id: 2
+  last_editor_id: 2
+  owner: john
