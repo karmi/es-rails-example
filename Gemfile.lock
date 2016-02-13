@@ -52,14 +52,29 @@ GEM
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.0)
     debug_inspector (0.0.2)
+    elasticsearch (1.0.15)
+      elasticsearch-api (= 1.0.15)
+      elasticsearch-transport (= 1.0.15)
+    elasticsearch-api (1.0.15)
+      multi_json
+    elasticsearch-model (0.1.8)
+      activesupport (> 3)
+      elasticsearch (> 0.4)
+      hashie
+    elasticsearch-transport (1.0.15)
+      faraday
+      multi_json
     erubis (2.7.0)
     execjs (2.6.0)
+    faraday (0.9.2)
+      multipart-post (>= 1.2, < 3)
     font-awesome-rails (4.5.0.0)
       railties (>= 3.2, < 5.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     haml (4.0.7)
       tilt
+    hashie (3.4.3)
     i18n (0.7.0)
     jbuilder (2.4.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -83,6 +98,7 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.2)
+    multipart-post (2.0.0)
     nested_form (0.3.2)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
@@ -184,6 +200,7 @@ DEPENDENCIES
   ansi
   byebug
   coffee-rails (~> 4.1.0)
+  elasticsearch-model (>= 0.1.8)
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
