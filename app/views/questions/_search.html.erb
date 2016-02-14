@@ -1,0 +1,36 @@
+<section class="search">
+  <form action="<%= search_questions_path %>" method="GET">
+    <input type="text" name="q" results="5" autosave="stack" placeholder="Type your query and press enter..." value="<%= params[:q] %>" />
+    <button type="submit">Search</button>
+
+    <% if params[:q] %>
+      <div class="facet">
+        <span class="facet-label">Months</span>
+        <ul class="months">
+          <% @questions.response.aggregations.months.months.buckets.each_with_index do |bucket, i| %>
+            <% selected = Array(params[:m]).include?(Time.at(bucket['key']/1000).utc.to_date.iso8601) %>
+            <li class="<% if selected %>selected<% end %>">
+              <input type="checkbox" name="m[]" id="months-<%= i %>" value="<%= Time.at(bucket['key']/1000).utc.to_date.iso8601 %>"<% if selected %> checked="true"<% end %>>
+              <label for="months-<%= i %>"><%= Time.at(bucket['key']/1000).utc.to_date.strftime('%b %Y') %> <span class="count"><%= bucket['doc_count'] %></span></label>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="facet">
+        <span class="facet-label">Tags</span>
+        <ul class="tags">
+          <% @questions.response.aggregations.tags.tags.buckets.each_with_index do |bucket, i| %>
+            <% selected = Array(params[:t]).include?(bucket['key']) %>
+            <li class="<% if selected %>selected<% end %>">
+              <input type="checkbox" name="t[]" id="tags-<%= i %>" value="<%= bucket['key'] %>"<% if selected %> checked="true"<% end %>>
+              <label for="tags-<%= i %>"><%= bucket['key'] %> <span class="count"><%= bucket['doc_count'] %></span></label>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div style="clear:both"></div>
+    <% end %>
+  </form>
+</section>

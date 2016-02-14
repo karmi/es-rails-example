@@ -55,8 +55,122 @@ a {
   box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
 }
 
-.meta .author {
+.search {
+  padding-bottom: 1em;
+  margin-bottom: 2em;
+  border-bottom: 4px solid #999;
+  position: relative;
+}
+
+.search input[name=q] {
+  color: #666;
+  background: #fafafa;
+  font-size: 24px;
   font-weight: bolder;
+  padding: 0.5em;
+  width: 96%;
+  height: 24px;
+  border: 1px solid #b2b2b2;
+  border-top-left-radius: 0.2em;
+  border-bottom-left-radius: 0.2em;
+}
+
+.search button[type=submit] {
+  color: #fff;
+  background: 1px solid #b2b2b2;
+  border: none;
+  font-size: 38px;
+  border-top-right-radius: 0.2em;
+  border-bottom-right-radius: 0.2em;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.search button[type=submit]:hover {
+  color: #666;
+  cursor: pointer;
+}
+
+.search .facet {
+  font-size: 85%;
+  clear: both;
+  position: relative;
+  margin: 1em 0 1em 0;
+}
+
+.search .facet-label {
+  position: absolute;
+  top: 0.75em;
+  left: 0;
+}
+
+.search ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0.5em 0 0.5em 4em;
+  float: left;
+}
+
+.search ul li {
+  color: #000;
+  background: #e6e6e6;
+  font-weight: normal;
+  padding: 0.25em 0.5em 0.3em 0.5em;
+  margin: 0 0.25em 0.5em 0;
+  border-radius: 0.25em;
+  display: inline-block;
+}
+
+.search ul li.selected {
+  font-weight: normal;
+  color: #fff;
+  background: #b3b3b3;
+}
+
+.search ul li.selected label .count {
+ color: #b3b3b3;
+ background: #fafafa;
+}
+
+.search ul li label {
+  display: inline-block;
+  position: relative;
+  top: 1px;
+}
+
+.search ul li label .count {
+  color: #fafafa;
+  background-color: #999999;
+  font-size: 40%;
+  font-weight: bolder;
+  text-align: center;
+  border-radius: 2.2em;
+  margin: 0 0.5em 0 0.5em;
+  padding: 0;
+  width: 2.2em;
+  height: 2.2em;
+  display: inline-block;
+  position: relative;
+  bottom: 0.25em;
+}
+
+.search ul li input {
+  padding: 0;
+  margin: 0;
+}
+
+.search .facet-label {
+  color: #999;
+  font-size: 80%;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+.meta .author,
+.comment .author {
+  font-weight: 600;
+  font-size: 110%;
 }
 .meta .author a {
   text-decoration: none;

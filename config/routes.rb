@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   root 'questions#index'
 
-  resources :questions, only: ['index', 'show']
+  resources :questions, only: ['index', 'show'] do
+    collection do
+      get 'search'
+    end
+  end
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 

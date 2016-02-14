@@ -1,13 +1,28 @@
 <div id="content" class="list">
 
+  <%= render partial: 'search' %>
+
   <section class="questions">
     <% @questions.each do |question| %>
       <div class="question">
-        <h2><%= link_to question.title, question_path(question.id) %></h2>
+        <h2>
+            <%= link_to \
+                  question.try(:highlight).try(:title) ? question.highlight.title.join.html_safe : question.title,
+                  question_path(question.id)
+            %>
+        </h2>
+
+        <% if question.try(:highlight).try(:body).present? || question.try(:inner_hits).try(:answer).try(:hits).try(:hits).try(:first).try(:highlight).try(:body).present? %>
+          <div class="highlights">
+            &hellip; <%= Array(question.try(:highlight).try(:body)).join(' &hellip; ').html_safe %>
+            <%= Array(question.try(:inner_hits).try(:answer).try(:hits).try(:hits).try(:first).try(:highlight).try(:body)).join(' &hellip; ').html_safe %> &hellip;
+          </div>
+        <% end %>
+
         <div class="header">
           <p class="meta">
             by <span class="author"><%= question.owner.display_name %></span>
-            on <span class="date"><%= question.creation_date %></span>
+            on <span class="date"><%= Time.parse(question.creation_date.to_s).utc.to_s(:short) %></span>
             <% Array(question.tags).each do |tag| %>
                 <span class="tag"><a href="#TODO"><%= tag %></a></span>
             <% end %>

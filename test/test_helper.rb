@@ -7,4 +7,11 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def setup
+    super
+    StackExchange::IndexManager.create_index force: true
+    StackExchange::IndexManager.import
+
+    Question.__elasticsearch__.refresh_index!
+  end
 end
