@@ -1,0 +1,22 @@
+<div id="content" class="list">
+
+  <section class="questions">
+    <% @questions.each do |question| %>
+      <div class="question">
+        <h2><%= link_to question.title, question_path(question.id) %></h2>
+        <div class="header">
+          <p class="meta">
+            by <span class="author"><%= question.owner.display_name %></span>
+            on <span class="date"><%= question.creation_date %></span>
+            <% Array(question.tags).each do |tag| %>
+                <span class="tag"><a href="#TODO"><%= tag %></a></span>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </section>
+
+  <%= paginate @questions %>
+
+</div>

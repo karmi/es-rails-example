@@ -1,0 +1,60 @@
+<div id="content">
+  <section class="question detail">
+    <section class="header">
+      <h2><%= @question.title %></h2>
+      <p class="meta">
+        Asked by <span class="author"><a href="#"><%= @question.owner.display_name %></a></span>
+        on <span class="date"><%= @question.creation_date.to_s(:short) %></span>
+        <span class="tags">
+        <% Array(@question.tags).each do |tag| %>
+            <span class="tag"><%= tag %></span>
+        <% end %>
+        </span>
+      </p>
+    </section>
+
+    <section class="body">
+      <%= @question.body.html_safe %>
+    </section>
+
+    <section class="comments">
+    <% @question.comments.each do |comment| %>
+      <div class="comment">
+        <div class="comment-meta">
+          <p>
+            comment by <span class="author"><a href="#"><%= comment.owner.display_name %></a></span>
+            on <span class="date"><%= comment.creation_date.to_s(:short) %></span>
+            <% if comment.rating > 0 %>
+                with <%= comment.rating %> votes
+            <% end %>
+          </p>
+        </div>
+
+        <div class="body">
+          <p><%= comment.text.html_safe %></p>
+        </div>
+      </div>
+    <% end %>
+    </section>
+
+    <section class="answers">
+      <% @question.answers.each do |answer| %>
+        <div class="answer<%= @question.accepted_answer_id == answer.id ? ' accepted' : '' %>">
+          <p class="meta">
+            <% if @question.accepted_answer_id == answer.id %>Accepted a<% else %>A<% end %>nswer by
+            <span class="author"><a href="#"><%= answer.owner.display_name %></a></span>
+            on <span class="date"><%= answer.creation_date.to_s(:short) %></span>
+            <% if answer.rating.present? %>
+                with <%= answer.rating %> votes
+            <% end %>
+          </p>
+
+          <div class="body">
+            <%= answer.body.html_safe %>
+          </div>
+
+        </div>
+      <% end %>
+    </section>
+  </section>
+</div>

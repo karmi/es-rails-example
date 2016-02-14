@@ -51,3 +51,4 @@ gem 'rails_admin'
 
 gem 'ansi'
 
+gem 'kaminari'
