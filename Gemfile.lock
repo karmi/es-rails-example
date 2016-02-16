@@ -62,6 +62,7 @@ GEM
       activesupport (> 3)
       elasticsearch (> 0.4)
       hashie
+    elasticsearch-rails (0.1.8)
     elasticsearch-transport (1.0.15)
       faraday
       multi_json
@@ -203,6 +204,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   elasticsearch-dsl
   elasticsearch-model (>= 0.1.8)
+  elasticsearch-rails
   jbuilder (~> 2.0)
   jquery-rails
   kaminari

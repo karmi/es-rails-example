@@ -54,4 +54,5 @@ gem 'ansi'
 gem 'kaminari'
 
 gem 'elasticsearch-model', '>= 0.1.8'
+gem 'elasticsearch-rails'
 gem 'elasticsearch-dsl'
